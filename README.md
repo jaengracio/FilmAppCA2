@@ -14,3 +14,6 @@ Run the command 'npm start' on the front end folder. Open http://localhost:3000 
 ## How to run the backend
 
 Run the command 'npm run watch' on the backend folder. This runs the backendd server.
+
+### Note*
+When you log in or out, refresh the page to see the difference between a registered user and a guest.
