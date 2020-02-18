@@ -16,4 +16,5 @@ Run the command 'npm start' on the front end folder. Open http://localhost:3000 
 Run the command 'npm run watch' on the backend folder. This runs the backendd server.
 
 ### Note*
-When you log in or out, refresh the page to see the difference between a registered user and a guest.
+When you log in or out, refresh the page to change the navbar.
+When you create a film/character/group, they do not automatically get added to the existing films/characters/groups in the Show pages.
