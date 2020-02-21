@@ -21,7 +21,7 @@ class FilmEdit extends Component {
   componentDidMount(){
     const { id } = this.props.match.params;
 
-    axios.get(`http://localhost:4000/films/${ id }`)
+    axios.get(`${process.env.REACT_APP_API_URI}/films/${ id }`)
     .then(res => {
       console.log(res);
 
@@ -33,7 +33,7 @@ class FilmEdit extends Component {
       console.log(err);
     })
 
-    axios.get(`http://localhost:4000/characters`)
+    axios.get(`${process.env.REACT_APP_API_URI}/characters`)
     .then((res) => {
       console.log(res);
 
@@ -86,7 +86,7 @@ class FilmEdit extends Component {
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
 
     // the new current state of the film is passed as an argument
-    axios.put(`http://localhost:4000/films/${id}`, this.state.film)
+    axios.put(`${process.env.REACT_APP_API_URI}/films/${id}`, this.state.film)
     .then(res => {
       console.log(res);
       this.props.history.push('/films');

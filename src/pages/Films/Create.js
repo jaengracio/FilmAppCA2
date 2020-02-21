@@ -18,7 +18,7 @@ class FilmCreate extends Component {
 
   // fills the empty array of the characters with character objects
   componentDidMount() {
-    axios.get('http://localhost:4000/characters')
+    axios.get(`${process.env.REACT_APP_API_URI}/characters`)
     .then((res) => {
       console.log(res);
       this.setState({
@@ -79,7 +79,7 @@ class FilmCreate extends Component {
     console.log(film);
 
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-    axios.post('http://localhost:4000/films', film)
+    axios.post(`${process.env.REACT_APP_API_URI}/films`, film)
     .then(res => {
       console.log(res.data);
       this.props.history.push('/films');
