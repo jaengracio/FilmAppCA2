@@ -13,7 +13,7 @@ export default class Film extends Component {
   }
 
   componentDidMount(){
-    axios.get('http://localhost:4000/films')
+    axios.get(`${process.env.REACT_APP_API_URI}/films`)
     .then(res => {
       console.log(res);
       this.setState({

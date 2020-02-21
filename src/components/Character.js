@@ -13,7 +13,7 @@ export default class Character extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/characters')
+    axios.get(`${process.env.REACT_APP_API_URI}/characters`)
     .then(res => {
       console.log(res);
       this.setState({

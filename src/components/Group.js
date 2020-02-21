@@ -13,7 +13,7 @@ export default class Group extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/groups')
+    axios.get(`${process.env.REACT_APP_API_URI}/groups`)
     .then(res => {
       console.log(res);
       this.setState({

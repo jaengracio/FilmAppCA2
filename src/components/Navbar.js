@@ -37,7 +37,7 @@ export default class MyNavbar extends Component {
             <Nav.Link as={ Link } to='/register'>Register</Nav.Link>
             <Nav.Link as={ Link } to='/login'>Login</Nav.Link>
             </>
-          )}
+          ) }
           </Nav>
         </Navbar.Collapse>
       </Navbar>
