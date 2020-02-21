@@ -20,7 +20,7 @@ class GroupEdit extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    axios.get(`http://localhost:4000/groups/${ id }`)
+    axios.get(`${process.env.REACT_APP_API_URI}/groups/${ id }`)
     .then((res) => {
       console.log(res);
 
@@ -32,7 +32,7 @@ class GroupEdit extends Component {
       console.log(err);
     });
 
-    axios.get(`http://localhost:4000/characters`)
+    axios.get(`${process.env.REACT_APP_API_URI}/characters`)
     .then((res) => {
       console.log(res);
 
@@ -84,7 +84,7 @@ class GroupEdit extends Component {
     e.preventDefault();
 
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-    axios.put(`http://localhost:4000/groups/${id}`, this.state.group)
+    axios.put(`${process.env.REACT_APP_API_URI}/groups/${id}`, this.state.group)
     .then(res => {
       console.log(res);
       this.props.history.push('/groups');

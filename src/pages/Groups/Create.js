@@ -16,7 +16,7 @@ class GroupCreate extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:4000/characters`)
+    axios.get(`${process.env.REACT_APP_API_URI}/characters`)
     .then(res => {
       console.log(res);
       this.setState({
@@ -32,6 +32,8 @@ class GroupCreate extends Component {
     const target = e.target;
     const name = target.name;
     var value = (name === 'newCharacters') ? this.getSelected(target.options) : target.value;
+
+    console.log(value);
 
     this.setState({
       [name]: value
@@ -62,7 +64,7 @@ class GroupCreate extends Component {
     console.log(group);
 
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-    axios.post('http://localhost:4000/groups', group)
+    axios.post(`${process.env.REACT_APP_API_URI}/groups`, group)
     .then(res => {
       console.log(res.data);
       this.props.history.push('/groups');
