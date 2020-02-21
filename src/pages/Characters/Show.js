@@ -16,7 +16,7 @@ class CharacterShow extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    axios.get(`http://localhost:4000/characters/${ id }`)
+    axios.get(`${process.env.REACT_APP_API_URI}/characters/${ id }`)
     .then((res) => {
       console.log(res);
 
@@ -34,7 +34,7 @@ class CharacterShow extends Component {
     console.log(id);
 
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-    axios.delete(`http://localhost:4000/characters/${ id }`)
+    axios.delete(`${process.env.REACT_APP_API_URI}/characters/${ id }`)
     .then((res) => {
       console.log(res);
       this.props.history.push('/characters');

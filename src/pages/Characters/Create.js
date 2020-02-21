@@ -18,7 +18,7 @@ class CharacterCreate extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:4000/groups`)
+    axios.get(`${process.env.REACT_APP_API_URI}/groups`)
     .then(res => {
       console.log(res);
       this.setState({
@@ -31,7 +31,7 @@ class CharacterCreate extends Component {
       console.log(err);
     });
 
-    axios.get(`http://localhost:4000/films`)
+    axios.get(`${process.env.REACT_APP_API_URI}/films`)
     .then(res => {
       console.log(res);
       this.setState({
@@ -78,7 +78,7 @@ class CharacterCreate extends Component {
     console.log(character);
 
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
-    axios.post('http://localhost:4000/characters', character)
+    axios.post(`${process.env.REACT_APP_API_URI}/characters`, character)
     .then(res => {
       console.log(res.data);
       this.props.history.push('/characters');
